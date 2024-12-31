@@ -1,0 +1,66 @@
+/* Comment Item Container */
+.commentItem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #ffffff; /* Clean white background */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px; /* Spacing between comments */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Hover Effect for Comment Item */
+  .commentItem:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+  }
+  
+  /* Comment User */
+  .commentUser {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0077b6; /* Vibrant blue */
+    margin-bottom: 5px;
+    font-family: Verdana, sans-serif;
+  }
+  
+  /* Comment Content */
+  .commentContent {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333333; /* Neutral dark text */
+    margin-bottom: 10px;
+    font-family: Verdana, sans-serif;
+  }
+  
+  /* Comment Time */
+  .commentTime {
+    font-size: 12px;
+    color: #666666; /* Subtle gray for time */
+    font-style: italic;
+    font-family: Verdana, sans-serif;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .commentItem {
+      padding: 10px;
+    }
+  
+    .commentUser {
+      font-size: 14px;
+    }
+  
+    .commentContent {
+      font-size: 12px;
+    }
+  
+    .commentTime {
+      font-size: 10px;
+    }
+  }
+  

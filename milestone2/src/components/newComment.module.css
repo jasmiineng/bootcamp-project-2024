@@ -1,0 +1,123 @@
+/* Comment Section Container */
+.commentSec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 700px; /* Reduced width for a narrower container */
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #e3f2fd; /* Light blue for consistency */
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Softer shadow for elegance */
+    font-family: Verdana, sans-serif;
+  }
+  
+  /* Section Title */
+  .commentSec h2 {
+    font-size: 30px; /* Larger font for emphasis */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0077b6; /* Matches the theme color */
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  }
+  
+  /* Form Container */
+  .formInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Input Label */
+  .formInfo label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #0077b6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Input Field */
+  .user,
+  .comment {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #90e0ef;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #0077b6;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .user:focus,
+  .comment:focus {
+    border-color: #00b4d8;
+    box-shadow: 0 0 5px rgba(0, 180, 216, 0.8);
+    outline: none;
+  }
+  
+  /* Textarea */
+  .comment {
+    min-height: 120px;
+    resize: none;
+  }
+  
+  /* Submit Button */
+  .button {
+    padding: 12px 30px;
+    background-color: #0077b6;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #005f99;
+    transform: scale(1.05);
+  }
+  
+  .button:active {
+    background-color: #003f66;
+  }
+  
+  /* Status Message */
+  .status {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #0077b6;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .commentSec {
+      padding: 20px;
+      max-width: 90%; /* Ensure it stays responsive */
+    }
+  
+    .user,
+    .comment {
+      font-size: 14px;
+    }
+  
+    .button {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  }
+  

@@ -1,0 +1,164 @@
+/* Blog Info Container */
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px;
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Softer shadow for elegance */
+    overflow: hidden;
+  }
+
+
+
+
+  .blogPage {
+    background-color: #e3f2fd; /* Light shade of blue */
+    min-height: 100vh; /* Ensures the background covers the entire viewport */
+    padding: 20px;
+  }
+
+
+
+  
+  /* Blog Title */
+  .title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #0077b6; /* Vibrant blue */
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-family: Verdana, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  /* Blog Date */
+  .date {
+    font-size: 18px;
+    font-weight: 500;
+    color: #666666; /* Muted gray for a softer appearance */
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: Verdana, sans-serif;
+  }
+  
+  /* Blog Image */
+  .photo {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow for image focus */
+    object-fit: cover;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  
+  /* Blog Description */
+  .description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333333; /* Neutral text color */
+    text-align: justify;
+    margin-bottom: 40px;
+    font-family: Verdana, sans-serif;
+    padding: 0 20px; /* Increased padding for mobile */
+  }
+  
+
+
+
+
+
+  /* Comment Section */
+.commentSection {
+    width: 100%;
+    max-width: 900px;
+    background-color: #f0f8ff; /* Gentle light blue */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-bottom: 50px; /* Add spacing below the comment section */
+  }
+  
+  .commentTitle {
+    font-size: 26px;
+    font-weight: bold;
+    color: #0077b6; /* Matches blog title color */
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    font-family: Verdana, sans-serif;
+    text-align: center;
+  }
+  
+  .commentList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 10px; /* Adjust padding for spacing */
+    margin-bottom: 20px; /* Additional space below the list */
+  }
+  
+
+
+
+
+
+
+  
+  /* New Comment Section */
+  .newComment {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 30px;
+  }
+  
+  /* 404 Error Page */
+  .errorPage {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .pageTitle {
+    font-size: 36px;
+    color: #0077b6;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .info {
+      padding: 20px;
+    }
+  
+    .photo {
+      width: 100%;
+      max-width: 100%;
+    }
+  
+    .title {
+      font-size: 34px;
+    }
+  
+    .date {
+      font-size: 16px;
+    }
+  
+    .description {
+      font-size: 16px;
+      padding: 0 15px;
+    }
+  
+    .commentTitle {
+      font-size: 22px;
+    }
+  }
+  

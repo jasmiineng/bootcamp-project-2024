@@ -5,6 +5,7 @@ export interface Blog {
     image: string;
     imageAlt: string;
     slug: string;
+    comments: { user: string; content: string; time: string }[];
   }
   
   export const blogs: Blog[] = [
@@ -14,7 +15,10 @@ export interface Blog {
       description: "First blog ever!",
       image: "/minionselfie.png",
       imageAlt: "Minion taking selfie.",
-      slug: "./blog/blog1",
+      slug: "blog1", 
+      comments: [
+        { user: "John", content: "Great blog!", time: "2024-10-28T10:00:00Z" },
+      ],
     },
     {
       name: "Blog #2",
@@ -22,10 +26,12 @@ export interface Blog {
       description: "Second blog ever!",
       image: "/minionselfie.png",
       imageAlt: "Minion taking selfie.",
-      slug: "./blog/blog2",
+      slug: "blog2",
+      comments: [
+        { user: "Jane", content: "I enjoyed this!", time: "2024-10-29T11:00:00Z" },
+      ],
     },
   ];
 
-  export default blogs; // This will allow us to access this data anywhere!
-
+  export default blogs; 
   
