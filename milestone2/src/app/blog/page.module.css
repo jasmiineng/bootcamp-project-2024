@@ -1,0 +1,23 @@
+/* Main Blog Page Container */
+.blogPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #caf0f8; /* Consistent light blue background */
+    font-family: Verdana, sans-serif;
+    box-sizing: border-box; /* Includes padding in height/width calculations */
+    padding-top: 85px;
+    padding-bottom: 85px;
+  }
+  
+  /* Blog List Container */
+  .blogList {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to the next row if space runs out */
+    gap: 150px; /* Space between blog previews */
+    justify-content: center; /* Centers the items horizontally */
+    align-items: flex-start; /* Aligns items to the top */
+    width: 100%;
+    max-width: 1200px; /* Centers content and limits width */
+
+  }

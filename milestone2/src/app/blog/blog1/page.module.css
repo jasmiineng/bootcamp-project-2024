@@ -1,0 +1,40 @@
+/* Blog Page */
+.blogPage {
+    background-color: #caf0f8;
+    font-family: Verdana, sans-serif;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  
+  /* Blog Post Title */
+  .blogTitle {
+    color: #0077b6;
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    font-size: 50px;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Blog Info */
+  .blogInfo {
+    color: #0077b6;
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 525;
+  }
+  
+  /* Blog Image */
+  .blogImage img {
+    display: block;
+    margin: 0 auto; /* Centers the image */
+    padding-bottom: 10px;
+    border-radius: 8px;
+    height: auto; /* Maintains aspect ratio */
+  }
+  
+  
+  

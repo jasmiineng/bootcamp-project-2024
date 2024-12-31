@@ -1,0 +1,49 @@
+
+  .pageTitle {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    color: #0077B6;
+    font-family: Verdana, sans-serif;
+    padding: 50px;
+    font-style: italic;
+    /*background-color: #CAF0F8;*/
+    font-weight: bold;
+  }
+
+
+
+
+  .about {
+    display: flex;
+    align-items: center;
+    /*background-color: #CAF0F8;*/
+    flex-direction: column;
+    align-items: center;
+    padding-right: 200px;
+    padding-left:200px;
+  }
+  
+  .about-image img {
+    max-width: 300px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+  }
+  
+  .aboutText {
+    flex: 1;
+    margin-left: 20px;
+    color: #0077B6;
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    max-width: 900px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+
+
+
+
+
+  

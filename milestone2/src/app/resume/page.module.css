@@ -1,0 +1,178 @@
+/* Main Page Container */
+.resume {
+  display: flex;
+  flex-direction: column;
+  
+  line-height: 1.6; /* Improved readability */
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 800px; /* Centers content and limits width */
+  font-family: Verdana, sans-serif;
+}
+
+/* Page Title */
+.pageTitle {
+  text-align: center;
+  font-size: 40px;
+  color: #0077b6;
+  padding-top: 50px;
+  margin-bottom: 15px;
+  font-style: italic;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+/* Section Title */
+.sectionTitle {
+  color: #0077b6;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 20px 0 10px;
+}
+
+/* Entry Section */
+.entry {
+  margin-bottom: 20px;
+}
+
+.entryTitle {
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.entryInfo {
+  font-size: 16px;
+  color: #333;
+  margin: 5px 0;
+}
+
+/* Bullet Points for Lists */
+.courseList,
+.skillList,
+.entryDescription {
+  list-style-type: disc; /* Adds bullet points */
+  margin-left: 20px; /* Indents the list */
+  padding-left: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Resume Download Button */
+.resume a {
+  color: #0077b6;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+  text-decoration: underline;
+  display: inline-block;
+  margin: 20px 0;
+  padding-bottom: 20px;
+}
+
+.resume a:hover {
+  color: black; /* Slightly darker blue on hover */
+}
+
+
+
+
+
+
+
+
+/* CSS for resume page 
+
+.resume{
+    display: flex;
+    flex-direction: column;
+    background-color: #CAF0F8;
+    line-height: 2;
+    font-family: Verdana, sans-serif;
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+
+  .pageTitle {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    color: #0077B6;
+    padding: 50px;
+    font-style: italic;
+    background-color: #CAF0F8;
+    font-weight: 800;
+  }
+
+
+  .sectionTitle {
+    color: #0077B6;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+
+  .entryTitle {
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .entryInfo {
+    font-size: 14px;
+  }
+  .entryDescription {
+    list-style-type: disc; 
+    margin-left: 20px;
+    padding-left: 20px; 
+    font-size: 14px;
+    line-height: 1.6; 
+  }
+
+
+  
+  .courseList {
+    list-style-type: disc; 
+    margin-left: 20px;
+    padding-left: 20px; 
+    font-size: 14px;
+    line-height: 1.6; 
+  }
+
+
+  
+  .skillList {
+    list-style-type: disc; 
+    margin-left: 20px;
+    padding-left: 20px; 
+    font-size: 14px;
+    line-height: 1.6; 
+  }
+
+
+
+  .resume a {
+    color: #0077B6;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    display: incline-block;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: underline;
+  }
+
+  .resume a:hover {
+    color: #03045E;
+  }
+  
+  */

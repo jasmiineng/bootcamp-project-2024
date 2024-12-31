@@ -1,0 +1,64 @@
+.projectContainer {
+    padding-top: 55px;
+    padding-bottom: 75px;
+}
+
+
+
+/* Page Title */
+  .pageTitle {
+    text-align: center;
+    font-size: 40px;
+    color: #0077b6;
+    margin: 20px 0;
+    font-style: italic;
+    font-weight: 800;
+    padding-bottom: 15px;
+  }
+  
+  /* Project Section */
+  .project {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #caf0f8;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .projectImage {
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .projectDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .projectName {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0077b6;
+  }
+  
+  .projectDescription {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .learnMore {
+    color: #00b4d8;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  
+  .learnMore:hover {
+    color: #005f99;
+  }
+  
