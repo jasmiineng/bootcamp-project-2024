@@ -22,7 +22,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link className={styles.navLink} href="/portfolio">
+              <Link className={styles.navLink} href="/project">
                 Portfolio
               </Link>
             </li>

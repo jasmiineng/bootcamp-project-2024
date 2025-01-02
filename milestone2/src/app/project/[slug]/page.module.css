@@ -1,0 +1,73 @@
+/* Page container */
+.projectPage {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Error page styling */
+  .errorPage {
+    text-align: center;
+    margin: 50px auto;
+    color: #d9534f;
+  }
+  
+  /* Page title */
+  .pageTitle {
+    font-size: 2rem;
+    color: #0077b6;
+    margin-bottom: 20px;
+  }
+  
+  /* Project content */
+  .projectContent {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0077b6;
+    font-family: Verdana, sans-serif;
+    margin-top: 40px;
+  }
+  
+  .date {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .photo {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+  }
+  
+  .description {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  /* Comment section */
+  .commentSection {
+    margin-top: 40px;
+  }
+  
+  .commentTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0077b6;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: Verdana, sans-serif;
+    text-decoration: underline;
+  }
+  
+  .commentList {
+    margin-top: 20px;
+  }
+  

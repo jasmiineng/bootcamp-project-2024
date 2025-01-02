@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./comment.module.css";
-import { IComment } from "@/database/blogSchema";
+import { IComment } from "@/database/projectSchema"; // Update the path to match your project schema
 
 type CommentProps = {
   comment: IComment;
@@ -8,15 +8,7 @@ type CommentProps = {
 
 // Function to format the comment time
 function parseCommentTime(time: Date) {
-  const options: Intl.DateTimeFormatOptions = {
-    weekday: "long", // Include day of the week
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  };
-  return new Date(time).toLocaleString(undefined, options); // Use locale options for formatting
+  return new Date(time).toLocaleString(); // Formats the date as a readable string
 }
 
 export default function Comment({ comment }: CommentProps) {
@@ -28,6 +20,3 @@ export default function Comment({ comment }: CommentProps) {
     </div>
   );
 }
-
-
-  

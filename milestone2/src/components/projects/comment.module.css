@@ -1,0 +1,99 @@
+/* Container for the entire comment section */
+.commentSection {
+    max-width: 1000px; /* Set max-width for the entire section */
+    margin: 40px auto; /* Center the section horizontally */
+    padding: 20px 15px; /* Add padding for better spacing */
+    background-color: #f7f9fc; /* Slightly darker background for contrast */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+    text-align: center; /* Center-align the title and content */
+  }
+  
+  /* Title of the comment section */
+  .commentSectionTitle {
+    font-size: 2rem; /* Slightly larger font size for emphasis */
+    font-weight: bold;
+    color: #005f99; /* Darker blue for better visibility */
+    margin-bottom: 20px;
+    text-align: center; /* Center-align the title */
+    border-bottom: 3px solid #ddd; /* Add a prominent underline */
+    padding-bottom: 8px; /* Add spacing below the title */
+    font-family: 'Roboto', sans-serif; /* Use a modern font */
+  }
+  
+  /* Container for each comment */
+  .commentItem {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc; /* Softer border color */
+    border-radius: 10px; /* Consistent rounded corners */
+    background-color: #ffffff; /* Clean white background for comments */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 900px; /* Reduce width slightly for better readability */
+    margin-left: auto; /* Center the comment box horizontally */
+    margin-right: auto;
+    text-align: left; /* Keep comment content aligned to the left */
+  }
+  
+  .commentItem:hover {
+    transform: translateY(-5px); /* Lift the comment slightly on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  }
+  
+  /* User's name styling */
+  .commentUser {
+    font-size: 1.3rem; /* Slightly larger for better emphasis */
+    font-weight: bold;
+    color: #0077b6; /* Brighter blue for user names */
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Comment content styling */
+  .commentContent {
+    font-size: 1rem;
+    color: #444; /* Slightly darker gray for better readability */
+    margin-bottom: 15px;
+    line-height: 1.8; /* Increased line height for better spacing */
+    word-wrap: break-word; /* Ensure long text breaks properly */
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Time styling */
+  .commentTime {
+    font-size: 0.9rem;
+    color: #777; /* Neutral gray for time */
+    text-align: right;
+    margin-top: 10px;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .commentSection {
+      padding: 15px;
+    }
+  
+    .commentSectionTitle {
+      font-size: 1.6rem; /* Adjusted font size for smaller screens */
+    }
+  
+    .commentItem {
+      padding: 15px;
+    }
+  
+    .commentUser {
+      font-size: 1.2rem;
+    }
+  
+    .commentContent {
+      font-size: 0.95rem;
+    }
+  
+    .commentTime {
+      font-size: 0.85rem;
+    }
+  }
+  

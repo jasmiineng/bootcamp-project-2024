@@ -1,0 +1,121 @@
+/* Container for the new comment section */
+.commentSec {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #e9eff6; /* Slightly darker background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Verdana, sans-serif;
+  }
+  
+  .commentSec h2 {
+    font-size: 1.8rem;
+    color: #005f99; /* Slightly darker blue */
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+  }
+  
+  /* Form styling */
+  .formInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Input and textarea container */
+  .formInfo label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .user,
+  .comment {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc; /* Lighter border for inputs */
+    border-radius: 5px;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .user:focus,
+  .comment:focus {
+    outline: none;
+    border-color: #005f99; /* Match the color of the title */
+    box-shadow: 0 0 5px rgba(0, 95, 153, 0.5);
+  }
+  
+  .comment {
+    height: 120px; /* Slightly taller default height for the comment textarea */
+    resize: vertical; /* Allow vertical resizing only */
+  }
+  
+  /* Submit button styling */
+  .button {
+    width: fit-content;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #005f99; /* Match the title color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    align-self: center;
+  }
+  
+  .button:hover {
+    background-color: #004070; /* Darker blue for hover */
+    transform: scale(1.05);
+  }
+  
+  .button:active {
+    transform: scale(1);
+  }
+  
+  /* Status message styling */
+  .status {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    text-align: center;
+    font-family: 'Roboto', sans-serif; /* Use Roboto for status messages */
+  }
+  
+  .status.success {
+    color: #28a745;
+  }
+  
+  .status.error {
+    color: #dc3545;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .commentSec {
+      padding: 15px;
+    }
+  
+    .commentSec h2 {
+      font-size: 1.5rem;
+    }
+  
+    .user,
+    .comment {
+      font-size: 0.95rem;
+    }
+  
+    .button {
+      font-size: 0.9rem;
+    }
+  }
+  
