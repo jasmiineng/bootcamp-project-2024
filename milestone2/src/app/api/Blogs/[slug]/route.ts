@@ -1,12 +1,38 @@
-import { NextResponse } from "next/server";
 import { blogs } from "@/app/static/blogData";
+import { NextRequest, NextResponse } from "next/server";
+import connectDB from "@/database/db"; // Default import
+import BlogModel from "@/database/blogSchema"; // Ensure correct export in blogSchema.ts
+
+interface PropsProm {
+  params: { slug: string };
+}
+
+export async function GET(req: NextRequest, { params }: PropsProm) {
+  await connectDB(); // Ensure DB is connected
+  const { slug } = params;
+
+  try {
+    // Fetch the blog post by slug
+    const blog = await BlogModel.findOne({ slug });
+    if (!blog) {
+      return NextResponse.json({ error: "Blog not found" }, { status: 404 });
+    }
+
+    return NextResponse.json(blog); // Return the found blog
+  } catch (err) {
+    console.error("Error fetching blog:", err);
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+  }
+}
 
 export async function POST(request: Request) {
   try {
+    await connectDB(); // Ensure DB is connected
+
     const { slug, user, content } = await request.json();
 
-    // Find the blog to update
-    const blog = blogs.find((b) => b.slug === slug);
+    // Fetch the blog post by slug
+    const blog = await BlogModel.findOne({ slug });
     if (!blog) {
       return NextResponse.json({ error: "Blog not found" }, { status: 404 });
     }
@@ -15,9 +41,12 @@ export async function POST(request: Request) {
     const newComment = {
       user,
       content,
-      time: new Date().toISOString(),
+      time: new Date(),
     };
     blog.comments.push(newComment);
+
+    // Save the updated blog
+    await blog.save();
 
     return NextResponse.json({ message: "Comment added successfully" });
   } catch (error) {
