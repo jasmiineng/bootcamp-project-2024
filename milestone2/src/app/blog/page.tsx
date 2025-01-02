@@ -3,19 +3,15 @@ import styles from "@/app/blog/page.module.css";
 import BlogPreview from '@/components/blogPreview'; // Import the BlogPreview component
 import Footer from "@/components/footer";
 import connectDB from '@/database/db'; // Use your connectDB utility
-import BlogModel, { IComment, BlogWithId } from '@/database/blogSchema'; // Import Blog model and types
+import BlogModel from '@/database/blogSchema'; // Import Blog model and types
+
 
 export default async function BlogPage() {
     try {
-      console.log("Step 1: Connecting to MongoDB...");
+        
       await connectDB();
-      console.log("Step 2: Connected successfully.");
   
-      console.log("Step 3: Fetching blogs from the database...");
-      const blogs = await BlogModel.find()
-        .select("slug title date description image image_alt comments")
-        .lean<BlogWithId[]>();
-      console.log("Step 4: Blogs fetched:", blogs);
+      const blogs = await BlogModel.find().sort({ date: 1 }).orFail(); //1 for earliest blog first; -1 for most recent blog first
   
       if (!blogs || blogs.length === 0) {
         console.log("No blogs found in the database.");
@@ -23,23 +19,25 @@ export default async function BlogPage() {
       }
   
       // Transform data
-      const transformedBlogs = blogs.map((blog) => ({
-        ...blog,
-        _id: blog._id.toString(),
+
+      const transformedBlogs = blogs.map((blog: any) => ({
+        //_id: blog._id.toString(),
+        slug: blog.slug,
+        title: blog.title,
+        description: blog.description,
         date: blog.date.toISOString(),
-        comments: blog.comments.map((comment) => ({
-          ...comment,
-          time: comment.time.toISOString(),
-        })),
+        image: blog.image || "/placeholder-image.jpg", // Fallback image
+        image_alt: blog.image_alt || "Blog Image",
       }));
+      
   
-      console.log("Step 5: Blogs transformed:", transformedBlogs);
+      //console.log("Step 5: Blogs transformed:", transformedBlogs);
   
       return (
         <main>
           <div className={styles.blogPage}>
             <div className={styles.blogList}>
-              {transformedBlogs.map((blog) => (
+              {transformedBlogs.map((blog:any) => (
                 <BlogPreview key={blog._id} blog={blog} />
               ))}
             </div>
@@ -61,21 +59,9 @@ export default async function BlogPage() {
     }
   }
   
-  
-  
-  
-  
-  
-  
-  
 
 
 
-
-
-
-  
-  
 
 
 

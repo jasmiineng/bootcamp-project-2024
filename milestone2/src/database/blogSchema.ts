@@ -1,57 +1,50 @@
-import { Schema, model, models, Model, Types } from 'mongoose';
+// import mongoose, { Schema, model, models } from 'mongoose';
 
-// Comment type
-export type IComment = {
-  user: string;
-  content: string;
-  time: Date;
-};
+// // Define the type for a single comment
+// export type IComment = {
+//   user: string; // The username of the commenter
+//   content: string; // The comment content
+//   time: Date; // The time the comment was created
+// };
 
-// Schema type for Blog
-export type BlogSchemaType = {
-  slug: string;
-  title: string;
-  date: Date;
-  description: string;
-  image: string;
-  image_alt: string;
-  comments: IComment[];
-};
+// // Define the schema for comments
+// const commentSchema = new Schema<IComment>({
+//   user: { type: String, required: true },
+//   content: { type: String, required: true },
+//   time: { type: Date, required: true, default: () => new Date() },
+// });
 
-// Application type for Blog
-export type BlogWithId = BlogSchemaType & { _id: Types.ObjectId };
+// // Define the type for a blog
+// export type Blog = {
+//   title: string; // The title of the blog
+//   date: Date; // The publication date of the blog
+//   slug: string; // The unique slug for the blog
+//   description: string; // The blog description
+//   image: string; // The URL of the blog image
+//   image_alt: string; // The alternative text for the blog image
+//   comments: IComment[]; // The list of comments on the blog
+// };
 
-// Mongoose schemas
-const commentSchema = new Schema<IComment>({
-  user: { type: String, required: true },
-  content: { type: String, required: true },
-  time: { type: Date, required: true, default: () => new Date() },
-});
+// // Define the schema for blogs
+// const blogSchema = new Schema<Blog>({
+//   slug: { type: String, required: true, unique: true },
+//   title: { type: String, required: true },
+//   date: { type: Date, default: () => new Date() },
+//   description: { type: String, required: true },
+//   image: { type: String, required: true },
+//   image_alt: { type: String, required: true },
+//   comments: [commentSchema], // Embed the comments schema
+// });
 
-const blogSchema = new Schema<BlogSchemaType>({
-  slug: { type: String, required: true, unique: true },
-  title: { type: String, required: true },
-  date: { type: Date, default: () => new Date() },
-  description: { type: String, required: true },
-  image: { type: String, required: true },
-  image_alt: { type: String, required: true },
-  comments: [commentSchema],
-});
+// // Define and export the Blog model
+// const Blogimp = mongoose.models['blogs'] || mongoose.model<Blog>('blogs', blogSchema);
 
-// Explicitly type the BlogModel
-const BlogModel = models.Blog || model<BlogSchemaType>('Blog', blogSchema);
-export default BlogModel;
-
+// export default BlogModel;
 
 
 
 
 
-
-
-
-
-/*
 import mongoose, { Schema } from "mongoose";
 
 export type IComment = {
@@ -72,7 +65,7 @@ export type Blog = {
 	    slug: string; 
 		description: string; // for preview
 	    image: string; // url for string in public
-	    image_alt: string; // alt for image
+	    imageAlt: string; // alt for image
 	    comments :IComment[];
 };
 
@@ -82,7 +75,7 @@ const blogSchema = new Schema<Blog>({
         date: { type: Date, required: false, default: new Date()},
         description: { type: String, required: true },
 		image: { type: String, required: true },
-	    image_alt: { type: String, required: true },
+	    imageAlt: { type: String, required: true },
 		slug: { type: String, required: true },
 		comments: [commentSchema],
 
@@ -93,7 +86,7 @@ const Blogimp = mongoose.models['blogs'] ||
     mongoose.model('blogs', blogSchema);
 
 export default Blogimp;
-*/
+
 
 
 

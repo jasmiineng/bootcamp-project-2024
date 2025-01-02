@@ -2,91 +2,138 @@ import style from './page.module.css';
 import Comment from "@/components/comment";
 import NewComment from '@/components/newComment';
 import Footer from "@/components/footer";
-import BlogModel, { BlogWithId } from "@/database/blogSchema"; 
+import BlogModel from "@/database/blogSchema";
 import mongoose from "mongoose";
+import React from 'react';
+
+
+
+
+
+// Type definitions
 
 type Props = {
-  params: {
-    slug: string;
-  };
-};
+	params:Promise<{
+		slug: string
+	}>;
+}
 
-async function connectToDatabase() {
-    const uri = process.env.MONGODB_URI;
-  
-    if (!uri || (!uri.startsWith("mongodb://") && !uri.startsWith("mongodb+srv://"))) {
-      throw new Error("Invalid MongoDB connection string. Make sure it starts with 'mongodb://' or 'mongodb+srv://'.");
-    }
-  
+
+
+
+async function getBlog(slug: string) {
     try {
-      if (!mongoose.connection.readyState) {
-        console.log("Connecting to MongoDB...");
-        await mongoose.connect(uri);
-        console.log("Connected to MongoDB successfully.");
+      const res = await fetch(`http://localhost:3000/api/Blogs/${slug}`, {
+        cache: "no-store",	
+      })
+      console.log("resopnce1.  ",res)
+      // console.log(res)
+      // This checks that the GET request was successful
+      if (!res.ok) { 
+        throw new Error("Failed to fetch blog");
       }
-    } catch (error) {
-      console.error("Error connecting to MongoDB:", error);
-      throw new Error("Failed to connect to the database.");
+      console.log("resopnce2.  ",res)
+      return res.json();
+    } catch (err: unknown) {
+      console.log(`error: ${err}`);
+      return null;
     }
+  }
+
+
+
+
+
+
+
+
+
+
+    //ur old code
+    // await connectToDatabase(); // Ensure database connection
+    // const blog = await BlogModel.findOne({ slug }).lean();
+  
+    // if (blog) {
+    //   return {
+    //     ...blog,
+    //     _id: blog._id.toString(), // Convert ObjectId to string
+    //     date: blog.date.toISOString(), // Convert Date to string
+    //     comments: blog.comments.map((comment: any) => ({
+    //       ...comment,
+    //       time: comment.time.toISOString(), // Convert Date to string
+    //     })),
+    //   };
+    // }
+  
+    // return null; // Return null if no blog is found
+    
+  
+  
+
+
+export default async function Blog({ params }: Props){
+    try {
+      const slug = (await params).slug;
+      console.log("SLUG passed to getBlog:", slug);
+      //
+
+      const blog = await getBlog(slug);
+      console.log("Fetched Blog:", blog);
+      //console.log(blog.slug)
+      //console.log("SLUG.            ",slug)
+      // const blog = await getBlog(params.slug);
+  
+      // Handle case where blog is not found
+      if (!blog) {
+        return (
+          <div className={style.errorPage}>
+            <h1 className={style.pageTitle}>404 - Blog Not Found</h1>
+          </div>
+        );
+      }
+  
+      return (
+        <div className={style.blogPage}>
+          <div className={style.info}>
+            <div className={style.blogContent}>
+              <h1 className={style.title}>{blog.title}</h1>
+              <p className={style.date}>{new Date(blog.date).toLocaleDateString()}</p>
+              <img
+                className={style.photo}
+                src={blog.image}
+                alt={blog.image_alt || "Blog Image"}
+              />
+              <p className={style.description}>{blog.description}</p>
+            </div>
+  
+            <div className={style.commentSection}>
+              <h2 className={style.commentTitle}>COMMENT SECTION</h2>
+              <div className={style.commentList}>
+                {blog.comments.map((comment: any, index: number) => (
+                  <Comment key={index}
+                  comment={comment}
+                  />
+                ))}
+              </div>
+            </div>
+  
+            <NewComment slug={slug} />
+          </div>
+  
+          <Footer />
+        </div>
+      );
+    } catch (error) {
+        console.error("Error rendering the blog page:", error);
+        return (
+          <div className={style.errorPage}>
+            <h1 className={style.pageTitle}>An error occurred. Please try again later.</h1>
+          </div>
+        );
+      }
   }
   
 
-// Async function to get the blog based on slug
-async function getBlog(slug: string): Promise<BlogWithId | null> {
-  await connectToDatabase(); // Ensure database connection is established
-  const blog = await BlogModel.findOne({ slug }).lean<BlogWithId | null>(); // Explicitly type the result
-  return blog;
-}
-
-// Blog Page Component
-export default async function Blog({ params }: Props) {
-  const blog = await getBlog(params.slug); // Fetch the blog data dynamically
-
-  // Handle missing blog
-  if (!blog) {
-    return (
-      <div className={style.errorPage}>
-        <h1 className={style.pageTitle}>404 - Blog Not Found</h1>
-      </div>
-    );
-  }
-
-  return (
-    <div className={style.blogPage}>
-      <div className={style.info}>
-        <div className={style.blogContent}>
-          <h1 className={style.title}>{blog.title}</h1>
-          <p className={style.date}>{new Date(blog.date).toLocaleDateString()}</p>
-          <img
-            className={style.photo}
-            src={blog.image}
-            alt={blog.image_alt || "Blog Image"}
-          />
-          <p className={style.description}>{blog.description}</p>
-        </div>
-
-        <div className={style.commentSection}>
-          <h2 className={style.commentTitle}>COMMENT SECTION</h2>
-          <div className={style.commentList}>
-            {blog.comments.map((comment, index) => (
-              <Comment
-                key={index}
-                comment={{
-                  ...comment,
-                  time: new Date(comment.time).toLocaleString(), // Convert time to readable string
-                }}
-              />
-            ))}
-          </div>
-        </div>
-
-        <NewComment slug={params.slug} />
-      </div>
-
-      <Footer />
-    </div>
-  );
-}
 
 
 

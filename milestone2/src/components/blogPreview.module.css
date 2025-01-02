@@ -40,7 +40,7 @@
 
 /* Blog Name (Title) */
 .blogName {
-  font-size: 40px;
+  font-size: 24px; /* Reduced font size for better alignment */
   font-weight: bold;
   color: #0077b6; /* Matches the theme color */
   margin-bottom: 10px;
@@ -49,11 +49,11 @@
 }
 
 /* Blog Date */
-.Date {
+.blogDate {
   font-size: 14px;
   color: #555; /* Subtle grey for the date */
   margin-bottom: 15px;
-  text-align: center;
+  text-align: center; /* Center the date */
   font-family: Verdana, sans-serif;
 }
 
@@ -62,7 +62,7 @@
   font-size: 14px;
   color: #333; /* Neutral text color */
   margin-bottom: 20px;
-  text-align: center;
+  text-align: center; /* Center the description */
   line-height: 1.5; /* Consistent with other pages */
   font-family: Verdana, sans-serif;
 }
@@ -82,7 +82,6 @@
   color: #005f99; /* Darker blue on hover */
   transform: scale(1.05); /* Slightly enlarges link on hover */
 }
-
 
 
 

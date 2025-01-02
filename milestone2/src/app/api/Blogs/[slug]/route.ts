@@ -1,3 +1,4 @@
+
 import { blogs } from "@/app/static/blogData";
 import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/database/db"; // Default import
@@ -17,7 +18,7 @@ export async function GET(req: NextRequest, { params }: PropsProm) {
     if (!blog) {
       return NextResponse.json({ error: "Blog not found" }, { status: 404 });
     }
-
+    console.log("this is the slug.       ",slug)
     return NextResponse.json(blog); // Return the found blog
   } catch (err) {
     console.error("Error fetching blog:", err);

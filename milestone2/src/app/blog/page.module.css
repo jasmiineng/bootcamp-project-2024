@@ -6,8 +6,8 @@
     background-color: #caf0f8; /* Consistent light blue background */
     font-family: Verdana, sans-serif;
     box-sizing: border-box; /* Includes padding in height/width calculations */
-    padding-top: 85px;
-    padding-bottom: 85px;
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
   
   /* Blog List Container */
