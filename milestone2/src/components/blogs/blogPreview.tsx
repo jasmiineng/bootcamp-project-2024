@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '@/components/blogPreview.module.css';
+import styles from '@/components/blogs/blogPreview.module.css';
 
 export type Blog = {
   slug: string;
