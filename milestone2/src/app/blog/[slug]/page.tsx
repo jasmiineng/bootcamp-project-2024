@@ -21,9 +21,9 @@ type BlogType = {
 };
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>; // Updated to match a Promise type
 };
 
 async function getBlog(slug: string): Promise<BlogType | null> {
@@ -48,7 +48,9 @@ async function getBlog(slug: string): Promise<BlogType | null> {
 
 export default async function Blog({ params }: Props) {
   try {
-    const { slug } = params;
+    // Await the params to resolve the slug
+    const resolvedParams = await params;
+    const { slug } = resolvedParams;
     console.log("SLUG passed to getBlog:", slug);
 
     const blog = await getBlog(slug);
@@ -108,6 +110,7 @@ export default async function Blog({ params }: Props) {
     );
   }
 }
+
 
 
 

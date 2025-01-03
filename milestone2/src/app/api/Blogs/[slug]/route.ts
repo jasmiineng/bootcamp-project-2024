@@ -4,17 +4,21 @@ import BlogModel from "@/database/blogSchema";
 
 export async function GET(
   req: NextRequest,
-  context: { params: { slug: string } } // Correct type for the second argument
+  context: { params: Promise<{ slug: string }> } // Correct type for context.params as a Promise
 ) {
   await connectDB(); // Ensure DB is connected
-  const { slug } = context.params; // Access the slug from context.params
 
   try {
+    // Resolve the promise to extract the `slug`
+    const resolvedParams = await context.params;
+    const { slug } = resolvedParams;
+
     // Fetch the blog post by slug
     const blog = await BlogModel.findOne({ slug });
     if (!blog) {
       return NextResponse.json({ error: "Blog not found" }, { status: 404 });
     }
+
     console.log("Fetched blog for slug:", slug);
     return NextResponse.json(blog); // Return the found blog
   } catch (err) {
@@ -58,6 +62,7 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
 
 
 
