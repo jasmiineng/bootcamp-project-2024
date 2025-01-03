@@ -1,6 +1,4 @@
 import React from "react";
-import Link from "next/link";
-//import styles from "@/app/styles.module.css";
 import Footer from "@/components/footer";
 import styles from "@/app/resume/page.module.css";
 

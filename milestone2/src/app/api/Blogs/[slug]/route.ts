@@ -1,8 +1,73 @@
-
-import { blogs } from "@/app/static/blogData";
 import { NextRequest, NextResponse } from "next/server";
-import connectDB from "@/database/db"; // Default import
-import BlogModel from "@/database/blogSchema"; // Ensure correct export in blogSchema.ts
+import connectDB from "@/database/db";
+import BlogModel from "@/database/blogSchema";
+
+export async function GET(
+  req: NextRequest,
+  context: { params: { slug: string } } // Correct type for the second argument
+) {
+  await connectDB(); // Ensure DB is connected
+  const { slug } = context.params; // Access the slug from context.params
+
+  try {
+    // Fetch the blog post by slug
+    const blog = await BlogModel.findOne({ slug });
+    if (!blog) {
+      return NextResponse.json({ error: "Blog not found" }, { status: 404 });
+    }
+    console.log("Fetched blog for slug:", slug);
+    return NextResponse.json(blog); // Return the found blog
+  } catch (err) {
+    console.error("Error fetching blog:", err);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function POST(req: NextRequest) {
+  try {
+    await connectDB(); // Ensure DB is connected
+
+    const { slug, user, content } = await req.json();
+
+    // Fetch the blog post by slug
+    const blog = await BlogModel.findOne({ slug });
+    if (!blog) {
+      return NextResponse.json({ error: "Blog not found" }, { status: 404 });
+    }
+
+    // Add the new comment
+    const newComment = {
+      user,
+      content,
+      time: new Date(),
+    };
+    blog.comments.push(newComment);
+
+    // Save the updated blog
+    await blog.save();
+
+    return NextResponse.json({ message: "Comment added successfully" });
+  } catch (err) {
+    console.error("Error in POST route:", err);
+    return NextResponse.json(
+      { error: "Failed to add comment" },
+      { status: 500 }
+    );
+  }
+}
+
+
+
+
+
+
+/*
+import { NextRequest, NextResponse } from "next/server";
+import connectDB from "@/database/db"; 
+import BlogModel from "@/database/blogSchema"; 
 
 interface PropsProm {
   params: { slug: string };
@@ -55,3 +120,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Failed to add comment" }, { status: 500 });
   }
 }
+*/
